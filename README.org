@@ -2,7 +2,7 @@
 ** Premise
 Huk (pronounced like "hook", although more like you've just been punched) is a Firefox-based browser extension that is intended to prevent tab stagnation.
 ** Overview
-Huk is a browser extension which works by allowing us to hook or shelve our tabs temporarily for later review. It can be run automatically on browser startup or upon opening the extension itself. This is likely to be a user-setting.
+Huk is a browser extension which works by allowing us to hook or shelve our tabs temporarily for later review. It can be run automatically on browser startup or upon opening the extension itself.
 
 At any moment while using the browser, a user may hook the active tab. This closes the active tab and places it into the extension's memory for later review.
 
@@ -41,21 +41,23 @@ This is a map/object containing any user-configured values.
 ***** url (string) — the url of the hooked tab
 ***** [pass] (number) — an optional property (only appears after the first pass) denoting the number of times the user has passed the hooked tab.
 ** Roadmap
+*** Manifest
+- Scaffold manifest.json
 *** Functionality
-- Startup
 - Open Tab
 - Close Tab
 - Read Current Tab
 - Save to Storage
 - Read from Storage
 - Save Bookmark
+- Run on Startup
 *** Configuration
 - Pass Limit
-The number of times the user may pass a hooked tab before action is required.
+  - The number of times the user may pass a hooked tab before action is required.
 - Silent Release
-Whether or not the extension will release your hook automatically when the pass limit is surpassed.
+  - Whether or not the extension will release your hook automatically when the pass limit is surpassed.
 - Automatic Startup
-Whether or not the extension will run upon starting the browser.
+  - Whether or not the extension will run upon starting the browser.
 *** Visual Design
 **** Extension Icons
 - Locate or Create Extension Icons
