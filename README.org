@@ -1,0 +1,70 @@
+* Huk
+** Premise
+Huk (pronounced like "hook", although more like you've just been punched) is a Firefox-based browser extension that is intended to prevent tab stagnation.
+** Overview
+Huk is a browser extension which works by allowing us to hook or shelve our tabs temporarily for later review. It can be run automatically on browser startup or upon opening the extension itself. This is likely to be a user-setting.
+
+At any moment while using the browser, a user may hook the active tab. This closes the active tab and places it into the extension's memory for later review.
+
+When reviewing your hooked tabs, Huk will open them one by one and offer you a few choices for how to respond to them. You may:
+- Release the hook, which indicates that you are no longer interested in the tab.
+- Bookmark the page, removing the hook placing the tab into long-term storage.
+- Pass, which does nothing, and moves focus to the next hooked tab.
+  - Note that, upon a certain number of passes, Huk will either force you to make a decision other than pass, or silently release the hook and move on to the next tab.
+** Ideology
+*** Accumulation
+- Tabs accumulate because they have no "direction".
+  - By direction, it is meant that one has no clear intention on how to proceed with a given tab. For example, whether to save the information for later, whether to read it at once and close it, whether to pass it to someone else.
+  - Too often, a tab is mentally delegated to be postponed to be handled at some future time (often, inadvertently, never).
+  - Having a direction for a particular tab keeps it moving or handled.
+- Once a tab has sat for a certain amount of time in your peripheral vision, it becomes a fixture.
+  - Fixtures become the backdrop of the environment, and they are no longer noticed. They may be glanced at, though the effort required to look away from it is negligible.
+  - Consciousness quickly comes to ignore constants.
+*** Solution
+Given those two ideas, how might we give direction to tabs before they stagnate?
+
+- Isolate the tab, in terms of time, memory, and space.
+  - Initial interest in a page can be fueled by momentary factors, which may be transient. In other words, you might have lost interest in something when revisiting it a while later.
+  - This also gives us a mental break which allows the deeper parts of our mind to pause and process our initial perceptions.
+  - Viewing them individually lets us give our full attention towards each tab, instead of being crowded with other peripheral information.
+- Sometimes, for various reasons, we cling to things which are unneeded or unnecessary for us.
+  - For this reason, Huks only work a certain number of times. A tab which is continually hooked will, eventually, fail to hook, and recede once again into the cosmic void.
+** Architecture
+
+*** Local Storage
+**** hookedTabs
+This is the array that will contain the tabs the user has hooked for later review.
+**** userConfig
+This is a map/object containing any user-configured values.
+*** Hooks
+**** Properties
+***** url (string) — the url of the hooked tab
+***** [pass] (number) — an optional property (only appears after the first pass) denoting the number of times the user has passed the hooked tab.
+** Roadmap
+*** Functionality
+**** Startup
+**** Open Tab
+**** Close Tab
+**** Read Current Tab
+**** Save to Storage
+**** Read from Storage
+**** Save Bookmark
+*** Configuration
+**** Pass Limit
+The number of times the user may pass a hooked tab before action is required.
+**** Silent Release
+Whether or not the extension will release your hook automatically when the pass limit is surpassed.
+**** Automatic Startup
+Whether or not the extension will run upon starting the browser.
+*** Visual Design
+**** Extension Icons
+***** Locate or Create Extension Icons
+**** Popup
+***** Button to Hook Active Tab
+***** Button to Initiate Review
+***** Button to Modify Settings
+*** Considerations
+**** Questions
++ How might query strings affect the re-opening of hooked tabs?
+  My initial impulse is to strip the URL of its query strings before saving it, though I will consider cases where this may caused undesired behavior. It may be difficult to reason about because the operation of every website is different.
+  One potential consideration for stripping the query strings from the URL is that it prevents duplicates inside the URLs. Hooking the same URL twice is possible if the query strings had different values, though the extension is able to check for equality without them.
