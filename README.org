@@ -42,29 +42,28 @@ This is a map/object containing any user-configured values.
 ***** [pass] (number) — an optional property (only appears after the first pass) denoting the number of times the user has passed the hooked tab.
 ** Roadmap
 *** Functionality
-**** Startup
-**** Open Tab
-**** Close Tab
-**** Read Current Tab
-**** Save to Storage
-**** Read from Storage
-**** Save Bookmark
+- Startup
+- Open Tab
+- Close Tab
+- Read Current Tab
+- Save to Storage
+- Read from Storage
+- Save Bookmark
 *** Configuration
-**** Pass Limit
+- Pass Limit
 The number of times the user may pass a hooked tab before action is required.
-**** Silent Release
+- Silent Release
 Whether or not the extension will release your hook automatically when the pass limit is surpassed.
-**** Automatic Startup
+- Automatic Startup
 Whether or not the extension will run upon starting the browser.
 *** Visual Design
 **** Extension Icons
-***** Locate or Create Extension Icons
+- Locate or Create Extension Icons
 **** Popup
-***** Button to Hook Active Tab
-***** Button to Initiate Review
-***** Button to Modify Settings
+- Button to Hook Active Tab
+- Button to Initiate Review
+- Button to Modify Settings
 *** Considerations
 **** Questions
-+ How might query strings affect the re-opening of hooked tabs?
-  My initial impulse is to strip the URL of its query strings before saving it, though I will consider cases where this may caused undesired behavior. It may be difficult to reason about because the operation of every website is different.
-  One potential consideration for stripping the query strings from the URL is that it prevents duplicates inside the URLs. Hooking the same URL twice is possible if the query strings had different values, though the extension is able to check for equality without them.
+- How might query strings affect the re-opening of hooked tabs?
+  - My initial impulse is to strip the URL of its query strings before saving it, though I will consider cases where this may caused undesired behavior. It may be difficult to reason about because the operation of every website is different. One potential consideration for stripping the query strings from the URL is that it prevents duplicate URLs. Hooking the same URL twice is possible if the query strings had different values, though the extension is able to check for inclusion without them.
