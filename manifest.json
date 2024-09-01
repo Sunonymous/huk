@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name": "Huk",
+    "version": "0.1",
+
+    "description": "A tool to prevent tab stagnation.",
+    "homepage_url": "https://github.com/Sunonymous/Huk",
+    "icons": {
+    },
+
+    "permissions": ["activeTab"],
+
+    "browser_action": {
+      "default_icon": "icons/huk_hook.png",
+      "default_title": "Huk",
+      "default_popup": "popup/huk.html"
+    }
+  }
