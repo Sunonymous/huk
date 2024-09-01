@@ -1,3 +1,6 @@
+#+title: Huk
+#+startup: overview
+
 * Huk
 ** Premise
 Huk (pronounced like "hook", although more like you've just been punched) is a Firefox-based browser extension that is intended to prevent tab stagnation.
